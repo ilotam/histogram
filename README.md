@@ -17,4 +17,8 @@ In order to use this chart you will need to have a data source that has one colu
 
 ![image](https://user-images.githubusercontent.com/47331711/109517865-feedef80-7aa9-11eb-8c5f-183bc704a865.png)
 
+# Logo
+
+![histo_logo](https://user-images.githubusercontent.com/47331711/111804092-08f85680-88d0-11eb-8e4e-f21263d54298.png)
+
 
