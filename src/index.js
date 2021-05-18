@@ -22,6 +22,7 @@ const styleVal = (message, styleId) => {
 
 
 
+
 const drawViz = message => {
   
   // set the dimensions and margins of the graph
@@ -30,7 +31,6 @@ const drawViz = message => {
       height = 400 - margin.top - margin.bottom;
 
     if (document.querySelector("svg")) {
-        //console.log("hello");
         let oldSvg = document.querySelector("svg");
         oldSvg.parentNode.removeChild(oldSvg);
       }
@@ -57,9 +57,13 @@ const drawViz = message => {
       }  
   });
 
+    var max = d3.max(data, function(d) { return +d.price });
+    
+    console.log(max);
+
     // X axis: scale and draw:
     var x = d3.scaleLinear()
-        .domain([0, 1000])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
+        .domain([0, max])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
         .range([0, width]);
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
@@ -88,7 +92,7 @@ const drawViz = message => {
         .append("rect")
           .attr("x", 1)
           .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
-          .attr("width", function(d) { return x(d.x1) - x(d.x0) -1 ; })
+          .attr("width", function(d) { return x(d.x1) - x(d.x0)  ; })
           .attr("height", function(d) { return height - y(d.length); })
           .style("fill", "#69b3a2")
 
